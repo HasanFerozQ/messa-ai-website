@@ -3,212 +3,244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Messa AI — Websites + AI Chatbots for US, UK & EU Businesses</title>
-<meta name="description" content="We build fast, modern websites with AI chatbots that answer customers, book appointments and capture leads 24/7. For businesses in the US, UK and EU.">
-<meta property="og:title" content="Messa AI — Websites + AI Chatbots that book customers">
-<meta property="og:description" content="Your website should not just look good. It should answer, book and sell, 24/7.">
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2305060f'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%237c6cff' font-family='Arial' font-weight='bold'>M</text></svg>">
+<title>Messa AI — Websites + AI Chatbots for US, UK &amp; EU</title>
+<meta name="description" content="Messa AI builds fast websites with AI chatbots that answer, book and sell — 24/7. For US, UK and EU businesses.">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Schibsted+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#05060f;--ink:#eef0ff;--dim:rgba(195,200,232,.65);--grid:rgba(255,255,255,.09);--grad:linear-gradient(135deg,#7c6cff,#38e1c6)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Schibsted Grotesk",system-ui,sans-serif;overflow-x:hidden}
+.mono{font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity .6s}
+.guides{position:fixed;inset:0;z-index:1;pointer-events:none}.guides i{position:absolute;top:0;bottom:0;width:1px;background:var(--grid)}
+.guides i:nth-child(1){left:17%}.guides i:nth-child(2){left:50%}.guides i:nth-child(3){left:83%}
+.topbar{position:fixed;top:0;left:0;right:0;height:30px;z-index:60;background:var(--bg);border-bottom:1px solid var(--grid);display:flex;align-items:center;justify-content:space-between;padding:0 17px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;transition:transform .5s cubic-bezier(.6,0,.2,1)}
+.topbar.hide{transform:translateY(-100%)}.topbar button{background:none;border:0;font-size:16px;cursor:pointer}
+nav{position:fixed;left:0;right:0;top:30px;z-index:59;height:52px;background:rgba(5,6,15,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--grid);display:grid;grid-template-columns:17% 1fr 12% 17%;align-items:stretch}
+nav.scrolled{top:0}
+.logo{display:flex;align-items:center;gap:10px;padding-left:17px;font-size:18px;font-weight:500;text-decoration:none;color:var(--ink)}
+.logo-mark{width:27px;height:27px;flex:0 0 27px;border-radius:7px;position:relative;background:var(--grad);padding:2px;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.logo-mark:before{content:"";position:absolute;inset:5px 4px 5px 9px;background:var(--bg);border-radius:4px}
+.logo-mark:after{content:"••";position:absolute;left:7px;top:6px;font-size:9px;letter-spacing:3px}
+.menu{display:flex;align-items:center;gap:22px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;padding-left:12px;flex-wrap:wrap}.menu a{color:var(--ink);text-decoration:none}
+.pad{display:flex;align-items:center;justify-content:center;border-left:1px solid var(--grid);border-right:1px solid var(--grid);font-family:"IBM Plex Mono",monospace;font-size:11px;text-decoration:none;color:var(--ink)}
+.launch-wrap{display:flex;align-items:center;justify-content:center;padding:0 12px}
+.launch{position:relative;padding:0 14px;height:30px;display:flex;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;background:transparent;border:1px solid rgba(255,255,255,.35);cursor:pointer}
+.launch:before{content:"";position:absolute;left:-1px;top:-1px;width:55%;height:1px;background:linear-gradient(90deg,#7c6cff,#38e1c6)}
+.launch:after{content:"";position:absolute;left:-1px;top:-1px;width:1px;height:55%;background:linear-gradient(180deg,#7c6cff,#38e1c6)}
+main{position:relative;z-index:2}
+section.hero{height:100vh;position:relative;overflow:hidden}
+.prompt{position:absolute;left:17%;top:30%;width:24.4%}
+.prompt-tab{width:42px;height:42px;display:grid;place-items:center;font-family:Georgia,serif;font-size:34px;font-weight:700;border:1px solid rgba(255,255,255,.25);margin-bottom:10px}
+.prompt-box{position:relative;border:1px solid rgba(255,255,255,.35);padding:14px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;line-height:1.45;min-height:92px;background:rgba(255,255,255,.06)}
+.corner{position:absolute;width:7px;height:7px;border:1px solid var(--ink)}.corner.tl{top:-5px;left:-5px;border-right:0;border-bottom:0}.corner.tr{top:-5px;right:-5px;border-left:0;border-bottom:0}.corner.bl{bottom:-5px;left:-5px;border-right:0;border-top:0}.corner.br{bottom:-5px;right:-5px;border-left:0;border-top:0}
+.caret{display:inline-block;width:6px;height:11px;background:var(--ink);vertical-align:-1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.next-prompt{margin-top:12px;color:rgba(255,255,255,.35);font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+.features{position:absolute;right:calc(100% - 83%);width:23%;text-align:right;top:calc(30% + 180px)}
+.features .row{height:21px;display:flex;align-items:center;justify-content:flex-end;border-bottom:1px solid var(--grid);font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;position:relative}
+.features .row i{position:absolute;left:18%;width:4px;height:4px;border-radius:50%;background:var(--ink)}
+.features .row.dim{color:var(--dim)}
+.bottom-left{position:absolute;left:17%;bottom:14%;z-index:3}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.05em;margin-bottom:12px}
+.headline{font-size:clamp(42px,5.25vw,92px);line-height:.95;font-weight:400;letter-spacing:-.02em}
+.headline span{display:inline-block;padding:6px 14px 10px;border:2px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(90deg,#7c6cff,#38e1c6) border-box}
+.headline .t2{background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(90deg,#a78bfa,#7c6cff,#38e1c6) border-box;clip-path:polygon(0 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%)}
+.sub{position:absolute;left:calc(62% + 18px);bottom:3.6%;font-size:14.5px;max-width:300px;z-index:3}
+.scroll-link{position:absolute;right:17px;bottom:3.6%;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink);z-index:3}
+.scroll-link .arr{width:28px;height:28px;border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+.content{background:var(--bg);position:relative;z-index:3;border-top:1px solid var(--grid)}
+.wrap{max-width:1100px;margin:0 auto;padding:80px 24px}
+.wrap h2{font-size:clamp(30px,3.05vw,54px);font-weight:400;line-height:1.05;margin:0 0 12px}
+.wrap h2 .box{display:inline-block;border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:6px 14px}
+.lead{color:var(--dim);max-width:620px;line-height:1.6}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.card{border:1px solid rgba(255,255,255,.35);padding:24px;background:rgba(255,255,255,.05);position:relative}
+.card.pop{border:2px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(90deg,#7c6cff,#38e1c6) border-box}
+.card h3{margin:0 0 8px;font-size:20px}.card p{color:var(--dim);line-height:1.6}
+.price{font-size:32px;margin:16px 0 4px}.price small{font-size:13px;color:var(--dim)}
+.btn{display:inline-block;margin-top:16px;padding:12px 18px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}
+.step{border-top:1px solid var(--grid);padding-top:14px}.step b{font-family:"IBM Plex Mono",monospace;font-size:11px}
+.faq{margin-top:24px}.faq p{line-height:1.6;color:var(--dim)}
+input,textarea,select{width:100%;padding:12px;border:1px solid rgba(255,255,255,.35);background:transparent;font:inherit;margin-bottom:12px}
+footer{padding:40px 24px;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;border-top:1px solid var(--grid);background:var(--bg);position:relative;z-index:3}
+@media(max-width:900px){
+.menu,.pad,.guides,.features{display:none!important}
+.prompt{left:16px;right:16px;width:auto;top:18%}
+.bottom-left{left:16px;bottom:auto;top:52%}
+.sub{left:16px;bottom:18px;background:rgba(5,6,15,.88);padding:6px}
+.grid3,.steps{grid-template-columns:1fr}
+nav{grid-template-columns:1fr auto}
+}
+</style>
 </head>
 <body>
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="logo" href="#top"><span class="logo-mark">◆</span> Messa <span class="logo-ai">AI</span></a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#services">Services</a>
-      <a href="#demo">Live demo</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#process">Process</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="btn btn-small" href="#contact">Book a free call</a>
-      <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
-    </div>
-  </div>
-</header>
-
-<main id="top">
-  <section class="hero wrap">
-    <div class="hero-grid">
-      <div>
-        <p class="badge">✦ AI Chatbots + Websites &nbsp;•&nbsp; US • UK • EU</p>
-        <h1>Your website should not just look good.<br><span class="grad">It should answer, book and sell — 24/7.</span></h1>
-        <p class="lead">We build fast, modern websites with an AI chatbot trained on your business. It answers FAQs instantly, books appointments, captures leads, and hands off to a real person when it matters.</p>
-        <div class="hero-cta">
-          <button class="btn btn-primary" onclick="openChat()">Try the live demo bot ↓</button>
-          <a class="btn btn-ghost" href="#contact">Get a free demo for your business</a>
-        </div>
-        <div class="hero-stats">
-          <div><strong>7–14 days</strong><span>typical build</span></div>
-          <div><strong>24/7</strong><span>bot coverage</span></div>
-          <div><strong>3 channels</strong><span>Website • WhatsApp • Messenger</span></div>
-        </div>
-        <p class="micro">No fake promises. No enterprise price tag. A working demo first, then you decide.</p>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="card-title">Live on this page — try it</span></div>
-        <div class="mini-chat">
-          <div class="msg bot">Hi, I'm the Messa AI demo bot. Ask me about pricing, timeline, or WhatsApp vs website bots.</div>
-          <div class="msg user">How fast can you build one?</div>
-          <div class="msg bot">Most chatbots go live in 7 days, most websites in 7–14 days. Want a demo made for your business type?</div>
-        </div>
-        <button class="btn btn-primary btn-full" onclick="openChat()">Chat with the demo bot</button>
-        <p class="micro center">This is a live demo, not a screenshot. The bot on this site is the product.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="strip wrap">
-    <span>Website chatbots</span><span>WhatsApp bots</span><span>Shopify support bots</span><span>Booking bots</span><span>Business websites</span><span>Landing pages</span>
-  </section>
-
-  <section id="services" class="section wrap">
-    <p class="kicker">What we build</p>
-    <h2>Two services. One goal: <span class="grad">more booked customers.</span></h2>
-    <div class="grid3">
-      <article class="card">
-        <div class="icon">🤖</div>
-        <h3>AI Chatbots</h3>
-        <p>Trained on your website, services and FAQs. Answers instantly, qualifies leads, books appointments, and captures name and phone — even at 2am.</p>
-        <ul><li>Website chatbot</li><li>WhatsApp chatbot (UK/EU favourite)</li><li>Messenger chatbot</li><li>Shopify order &amp; support bot</li></ul>
-      </article>
-      <article class="card">
-        <div class="icon">⚡</div>
-        <h3>Modern Websites</h3>
-        <p>Fast, mobile-first, and built to convert, not just to look pretty. Clear headline, clear next step, fast loading, and Google-friendly structure.</p>
-        <ul><li>Business websites</li><li>Landing pages for ads</li><li>Shopify / custom builds</li><li>Speed, SEO basics &amp; analytics</li></ul>
-      </article>
-      <article class="card highlight">
-        <div class="icon">✦</div>
-        <h3>Website + Chatbot Bundle</h3>
-        <p>The best value. A new website with a chatbot built in from day one, so every visitor gets an answer and a way to book, instead of bouncing.</p>
-        <ul><li>One team, one launch</li><li>Bot trained on your new site</li><li>Booking + lead capture included</li><li>30 days of fixes included</li></ul>
-        <p><strong>Most popular for new clients.</strong></p>
-      </article>
-    </div>
-  </section>
-
-  <section id="demo" class="section wrap">
-    <p class="kicker">See it, don't just read about it</p>
-    <h2>Try the bot. <span class="grad">It is the demo.</span></h2>
-    <p class="lead">Click the chat button bottom-right and ask about pricing, timeline, or your business type. It answers from this site, and when it does not know, it will ask for your details so a human can reply.</p>
-    <div class="grid3">
-      <article class="card"><h3>🛠️ Service booking bot</h3><p>Plumber, HVAC, salon, clinic: "Do you fix boilers on Saturday?" → bot answers, checks availability, books the visit, captures phone.</p><p class="micro">DEMO EXAMPLE</p></article>
-      <article class="card"><h3>🛍️ Shop support bot</h3><p>"Where is my order? What sizes are in stock? What is your return policy?" → bot answers from your store, and sends the shopper to checkout.</p><p class="micro">DEMO EXAMPLE</p></article>
-      <article class="card"><h3>📱 WhatsApp appointment bot</h3><p>UK/EU favourite: customer messages on WhatsApp, bot confirms the appointment, reminds them, and hands off to your team.</p><p class="micro">DEMO EXAMPLE</p></article>
-    </div>
-  </section>
-
-  <section id="pricing" class="section wrap">
-    <p class="kicker">Clear pricing, no surprise quotes</p>
-    <h2>Start small. <span class="grad">Upgrade when it pays for itself.</span></h2>
-    <div class="tabs">
-      <button class="tab active" onclick="showPricing('chatbot',this)">Chatbots</button>
-      <button class="tab" onclick="showPricing('website',this)">Websites</button>
-      <button class="tab" onclick="showPricing('bundle',this)">Bundle</button>
-    </div>
-    <div id="price-chatbot" class="price-grid">
-      <article class="card"><h3>Starter</h3><p class="price">$349</p><p>Website FAQ bot, 1 channel, trained on your site.</p><ul><li>Live in 7 days</li><li>Lead capture</li><li>Human handoff</li></ul></article>
-      <article class="card highlight"><h3>Growth ★</h3><p class="price">$749</p><p>AI bot trained on site + docs, booking, website + 1 messaging channel.</p><ul><li>Booking &amp; calendar</li><li>WhatsApp or Messenger</li><li>30-day fix support</li></ul></article>
-      <article class="card"><h3>Pro</h3><p class="price">$1,290</p><p>Website + WhatsApp + Messenger, 1 integration (CRM, calendar or orders).</p><ul><li>All 3 channels</li><li>1 integration</li><li>Monthly report</li></ul></article>
-    </div>
-    <div id="price-website" class="price-grid hidden">
-      <article class="card"><h3>Launch</h3><p class="price">$499</p><p>Fast 3-page business website, mobile-first, contact + booking ready.</p><ul><li>Live in 7–14 days</li><li>SEO basics</li><li>Analytics setup</li></ul></article>
-      <article class="card highlight"><h3>Growth ★</h3><p class="price">$999</p><p>Up to 7 pages, landing page for ads, speed optimisation, chatbot-ready structure.</p><ul><li>Conversion copy help</li><li>Forms &amp; booking</li><li>30-day fix support</li></ul></article>
-      <article class="card"><h3>Scale</h3><p class="price">$1,900</p><p>Up to 12 pages or Shopify store up to 20 products, custom sections, integrations.</p><ul><li>Store or large site</li><li>Custom design</li><li>Launch training</li></ul></article>
-    </div>
-    <div id="price-bundle" class="price-grid hidden">
-      <article class="card highlight"><h3>Website + Chatbot</h3><p class="price">from $999</p><p>New website with a chatbot built in from day one. Best value for businesses starting fresh or relaunching.</p><ul><li>Website + bot, one launch</li><li>Bot trained on your new site</li><li>Booking + lead capture</li><li>30 days of fixes</li></ul></article>
-      <article class="card"><h3>Care plan</h3><p class="price">$79<span class="per">/mo</span></p><p>Optional monthly care: updates, bot improvements, and a simple monthly report.</p><ul><li>Cancel anytime</li><li>Content updates</li><li>Bot tuning</li></ul></article>
-    </div>
-    <p class="micro">Starting prices. 50% upfront, 50% on launch. Platform and WhatsApp fees, if any, are paid by the client separately and shown upfront — never hidden.</p>
-  </section>
-
-  <section id="process" class="section wrap">
-    <p class="kicker">How it works</p>
-    <h2>From first call to live in <span class="grad">4 steps.</span></h2>
-    <div class="grid4">
-      <div class="step"><span>01</span><h3>Free 20-min call</h3><p>We check your business, your customers, and whether a bot or website will actually pay for itself.</p></div>
-      <div class="step"><span>02</span><h3>Demo in 48 hours</h3><p>You get a working demo for your business type, not a PDF mockup, so you can try it before you pay the balance.</p></div>
-      <div class="step"><span>03</span><h3>Build &amp; test</h3><p>We build, train the bot on your real content, test bookings and handoffs, and fix issues before launch.</p></div>
-      <div class="step"><span>04</span><h3>Launch + care</h3><p>Go live, get a short training video, and 30 days of fixes. Care plan is optional after that.</p></div>
-    </div>
-  </section>
-
-  <section class="section wrap">
-    <p class="kicker">US • UK • EU</p>
-    <h2>Built for how your customers <span class="grad">actually message you.</span></h2>
-    <div class="grid3">
-      <article class="card"><h3>🇺🇸 United States</h3><p>Website + Messenger first. Fast answers, booking, and lead capture for service and local businesses.</p></article>
-      <article class="card"><h3>🇬🇧 United Kingdom</h3><p>WhatsApp + website. Appointment booking, reminders, and human handoff, with UK GDPR care for customer data.</p></article>
-      <article class="card"><h3>🇪🇺 European Union</h3><p>WhatsApp + website, with GDPR data minimisation, clear privacy info, and no selling of customer data. Human handoff always available.</p></article>
-    </div>
-  </section>
-
-  <section id="faq" class="section wrap">
-    <p class="kicker">FAQ</p>
-    <h2>Questions clients ask <span class="grad">before they buy.</span></h2>
-    <div class="faq">
-      <details open><summary>How long does it take?</summary><p>Most chatbots: 7 days. Most websites: 7–14 days. Larger stores or complex integrations can take longer, and we tell you upfront.</p></details>
-      <details><summary>Do I need a website already for a chatbot?</summary><p>No. If you have one, we train the bot on it. If you don't, the Bundle builds you a website with the bot built in.</p></details>
-      <details><summary>What if the bot does not know an answer?</summary><p>It says so honestly, captures the customer's name and question, and hands off to you. It never invents prices, availability, or policies.</p></details>
-      <details><summary>Are WhatsApp costs included?</summary><p>No, and we show them upfront. WhatsApp Business and platform fees depend on volume and provider, and are paid by you separately.</p></details>
-      <details><summary>Who owns the website and bot?</summary><p>You do. You get the site, the bot setup, and your content. We just build and, if you choose care, maintain it.</p></details>
-      <details><summary>What about GDPR / UK GDPR?</summary><p>We collect only what the bot needs to answer or book, we link a clear privacy note, and we never sell customer data. For regulated businesses, we add a human review step.</p></details>
-    </div>
-  </section>
-
-  <section id="contact" class="section wrap">
-    <div class="cta-box">
-      <div>
-        <h2>Get a free demo for <span class="grad">your business.</span></h2>
-        <p class="lead">Tell us your business type, your website (if you have one), and where your customers message you. We reply with a working demo idea within 1 business day.</p>
-        <p class="micro">Prefer email? Write to essa.bin.hasan@gmail.com with subject "Chatbot demo".</p>
-      </div>
-      <form id="contactForm" class="form">
-        <input name="name" placeholder="Your name" required>
-        <input name="business" placeholder="Your business type, e.g. dental clinic, plumber, Shopify store" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <select name="need" required>
-          <option value="">I need…</option>
-          <option>AI chatbot only</option>
-          <option>Website only</option>
-          <option>Website + chatbot bundle</option>
-          <option>Not sure yet — advise me</option>
-        </select>
-        <textarea name="message" rows="4" placeholder="What do customers ask you most? Where do they message you now?"></textarea>
-        <button class="btn btn-primary btn-full" type="submit">Request my free demo →</button>
-        <p class="micro center" id="formNote">This opens your email app with your details prefilled, so nothing is lost. A proper form backend can be added after launch.</p>
-      </form>
-    </div>
-  </section>
-</main>
-
-<footer class="footer wrap">
-  <p><strong>Messa AI</strong> — Websites + AI chatbots for US, UK &amp; EU businesses.</p>
-  <p class="micro">We do not sell customer data. Bots hand off to a human when they do not know an answer. Demo examples on this site are labelled as demos.</p>
-  <p class="micro">© 2026 Messa AI. Prices are starting prices in USD. EU/UK clients are invoiced in USD unless agreed otherwise.</p>
-</footer>
-
-<button class="chat-fab" onclick="toggleChat()" aria-label="Open chat">💬</button>
-<div class="chat-panel" id="chatPanel">
-  <div class="chat-head"><div><strong>Messa AI demo bot</strong><span>Online • replies instantly • human handoff available</span></div><button onclick="toggleChat()">✕</button></div>
-  <div class="chat-body" id="chatBody">
-    <div class="msg bot">Hi! I'm a demo of what we build. Ask me about pricing, timeline, WhatsApp, or booking a call.</div>
-  </div>
-  <div class="chips">
-    <button onclick="quickAsk('pricing')">Pricing</button>
-    <button onclick="quickAsk('timeline')">Timeline</button>
-    <button onclick="quickAsk('whatsapp')">WhatsApp or website?</button>
-    <button onclick="quickAsk('book')">Book a call</button>
-  </div>
-  <form class="chat-input" onsubmit="sendChat(event)">
-    <input id="chatInput" placeholder="Ask about chatbots or websites…" autocomplete="off">
-    <button type="submit">Send</button>
-  </form>
+<canvas id="scene"></canvas>
+<div class="guides"><i></i><i></i><i></i></div>
+<div class="topbar" id="topbar"><span><strong>New:</strong> Websites + AI Chatbots — Built for US • UK • EU ↗</span><button onclick="document.getElementById('topbar').classList.add('hide')" aria-label="Close">×</button></div>
+<nav id="nav">
+<a class="logo" href="#top"><span class="logo-mark"></span>MESSA AI</a>
+<div class="menu"><a href="#services">Services▾</a><a href="#pricing">Pricing</a><a href="#process">Process</a><a href="#demo">Demo▾</a><a href="#contact">Contact us</a></div>
+<a class="pad" href="#contact">Free Demo ↗</a>
+<div class="launch-wrap"><button class="launch" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">•• BOOK A CALL</button></div>
+</nav>
+<main>
+<section class="hero" id="top">
+<div class="prompt">
+<div class="prompt-tab">“</div>
+<div class="prompt-box"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span><span id="typed"></span><span class="caret"></span></div>
+<div class="next-prompt" id="nextPrompt"></div>
 </div>
-
-<script src="script.js"></script>
+<div class="features">
+<div class="row"><i></i>AI CHATBOTS</div>
+<div class="row"><i></i>MODERN WEBSITES</div>
+<div class="row"><i></i>WHATSAPP BOTS</div>
+<div class="row dim"><i></i>AND MUCH MORE</div>
+</div>
+<div class="bottom-left">
+<div class="eyebrow">UNLEASH THE POWER OF</div>
+<div class="headline"><span>Websites That</span><br><span class="t2">Sell 24/7</span></div>
+</div>
+<div class="sub">We build fast websites with AI chatbots trained on your business. It answers, books and sells — even at 2am. For US, UK &amp; EU service businesses, shops and clinics.</div>
+<a class="scroll-link" href="#services">SCROLL <span class="arr">↓</span></a>
+</section>
+<div class="content">
+<section id="services" class="wrap">
+<p class="mono" style="font-size:11px">·· What we build</p>
+<h2><span class="box">Your Gateway</span><br>To a website that works while you sleep.</h2>
+<p class="lead">No fake promises. No enterprise price tag. A working demo first, then you decide. Move your mouse — the robot on the hero is the demo of what we build: it watches, answers, and never sleeps.</p>
+<div class="grid3">
+<div class="card"><h3>🤖 AI Chatbots</h3><p>Trained on your website, services and FAQs. Answers instantly, qualifies leads, books appointments, captures name and phone.</p><p>Website • WhatsApp • Messenger • Shopify support</p></div>
+<div class="card"><h3>⚡ Modern Websites</h3><p>Fast, mobile-first, built to convert, not just to look pretty. Clear headline, clear next step, fast loading, Google-friendly structure.</p><p>Business sites • Landing pages • Shopify / custom</p></div>
+<div class="card pop"><h3>✦ Website + Chatbot Bundle</h3><p><strong>Most popular for new clients.</strong> A new website with a chatbot built in from day one, so every visitor gets an answer and a way to book, instead of bouncing.</p><p>One team, one launch, 30 days of fixes</p></div>
+</div>
+</section>
+<section id="demo" class="wrap" style="border-top:1px solid var(--grid)">
+<p class="mono" style="font-size:11px">·· Try it, don't just read about it</p>
+<h2>See it, don't just read about it.</h2>
+<p class="lead">Service booking bot: “Do you fix boilers on Saturday?” → bot answers, checks availability, books the visit, captures phone. Shop support bot: “Where is my order?” → bot answers from your store. WhatsApp appointment bot: the UK/EU favourite — confirm, remind, hand off to your team.</p>
+<p class="lead">All three are DEMO EXAMPLES. Your bot is trained on your real business, and when it does not know, it says so honestly and hands off to you. It never invents prices or availability.</p>
+</section>
+<section id="pricing" class="wrap" style="border-top:1px solid var(--grid)">
+<p class="mono" style="font-size:11px">·· Clear pricing, no surprise quotes</p>
+<h2>Start small. Upgrade when it pays for itself.</h2>
+<div class="grid3">
+<div class="card"><h3>Chatbot — Starter</h3><div class="price">$349</div><p>Website FAQ bot, 1 channel, trained on your site. Live in 7 days, lead capture, human handoff.</p></div>
+<div class="card pop"><h3>Chatbot — Growth ★</h3><div class="price">$749</div><p>AI bot trained on site + docs, booking, website + 1 messaging channel, 30-day fix support.</p></div>
+<div class="card"><h3>Chatbot — Pro</h3><div class="price">$1,290</div><p>Website + WhatsApp + Messenger, 1 integration (CRM, calendar or orders), monthly report.</p></div>
+<div class="card"><h3>Website — Launch</h3><div class="price">$499</div><p>Fast business website, mobile-first, contact form, SEO basics.</p></div>
+<div class="card"><h3>Website — Growth</h3><div class="price">$999</div><p>More pages, booking/quote form, speed optimisation, analytics.</p></div>
+<div class="card"><h3>Bundle — From</h3><div class="price">$999</div><p>Website + chatbot together. <small>Starting prices. 50% upfront, 50% on launch. Platform and WhatsApp fees, if any, are paid by the client separately and shown upfront.</small></p></div>
+</div>
+<p class="lead" style="margin-top:16px">Care plan, optional after launch: $79/month.</p>
+</section>
+<section id="process" class="wrap" style="border-top:1px solid var(--grid)">
+<p class="mono" style="font-size:11px">·· How it works</p>
+<h2>From first call to live in 4 steps.</h2>
+<div class="steps">
+<div class="step"><b>01 — Free 20-min call</b><p>We check your business, your customers, and whether a bot or website will actually pay for itself.</p></div>
+<div class="step"><b>02 — Demo in 48 hours</b><p>A working demo for your business type, not a PDF mockup, so you can try it before you pay the balance.</p></div>
+<div class="step"><b>03 — Build &amp; test</b><p>We build, train the bot on your real content, test bookings and handoffs, and fix issues before launch.</p></div>
+<div class="step"><b>04 — Launch + care</b><p>Go live, get a short training video, and 30 days of fixes. Care plan is optional after that.</p></div>
+</div>
+<h2 style="margin-top:48px">US • UK • EU</h2>
+<p class="lead">US: website + Messenger first. UK: WhatsApp + website, with UK GDPR care. EU: WhatsApp + website, with GDPR data minimisation, clear privacy info, and no selling of customer data. Human handoff always available. You own the website and bot.</p>
+<div class="faq">
+<p><strong>How long does it take?</strong> Most chatbots: 7 days. Most websites: 7–14 days. Larger stores or complex integrations can take longer, and we tell you upfront.</p>
+<p><strong>Do I need a website already for a chatbot?</strong> No. If you have one, we train the bot on it. If you don't, the Bundle builds you a website with the bot built in.</p>
+<p><strong>What if the bot does not know an answer?</strong> It says so honestly, captures the customer's name and question, and hands off to you.</p>
+</div>
+</section>
+<section id="contact" class="wrap" style="border-top:1px solid var(--grid)">
+<p class="mono" style="font-size:11px">·· Get a free demo</p>
+<h2>Get a free demo for your business.</h2>
+<p class="lead">Tell us your business type, your website (if you have one), and where your customers message you. We reply with a working demo idea within 1 business day.</p>
+<form onsubmit="event.preventDefault();const f=this;const m='Name: '+f.name.value+'%0D%0AEmail: '+f.email.value+'%0D%0ABusiness: '+f.business.value+'%0D%0A%0D%0A'+encodeURIComponent(f.message.value);location.href='mailto:essa.bin.hasan@gmail.com?subject=Chatbot demo&body='+m">
+<input name="name" placeholder="Your name" required>
+<input name="email" type="email" placeholder="Your email" required>
+<input name="business" placeholder="Business type, e.g. plumbing, salon, shop">
+<textarea name="message" rows="4" placeholder="Where do your customers message you? Website, WhatsApp, Messenger?"></textarea>
+<button class="btn" type="submit">SEND DEMO REQUEST ↗</button>
+</form>
+<p class="lead">Prefer email? Write to essa.bin.hasan@gmail.com with subject “Chatbot demo”.</p>
+</section>
+</div>
+</main>
+<footer>MESSA AI · 2026 — Websites + AI Chatbots for US, UK &amp; EU</footer>
+<script>
+const topbar=document.getElementById('topbar'),nav=document.getElementById('nav'),scene=document.getElementById('scene');
+window.addEventListener('scroll',()=>{const s=window.scrollY;topbar.classList.toggle('hide',s>40);nav.classList.toggle('scrolled',s>40);scene.style.opacity=s>window.innerHeight*.8?0:1},{passive:true});
+const prompts=["Build a chatbot for my plumbing business that books jobs.","I need a website that answers customers at 2am.","Can a bot take orders on WhatsApp for my shop?","How fast can you launch my website + chatbot?"];
+let pi=0,ci=0,del=false;const typed=document.getElementById('typed'),nextEl=document.getElementById('nextPrompt');
+function showNext(){nextEl.textContent='Next: '+prompts[(pi+1)%prompts.length]} showNext();
+function tick(){const p=prompts[pi];if(!del){ci++;typed.textContent=p.slice(0,ci);if(ci>=p.length){del=true;setTimeout(tick,2600);return}setTimeout(tick,38)}else{ci-=2;if(ci<=0){ci=0;del=false;pi=(pi+1)%prompts.length;showNext();setTimeout(tick,250);return}typed.textContent=p.slice(0,ci);setTimeout(tick,14)}} tick();
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const canvas=document.getElementById('scene');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;renderer.outputColorSpace=THREE.SRGBColorSpace;
+const scene=new THREE.Scene();const pmrem=new THREE.PMREMGenerator(renderer);scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;if('environmentIntensity' in scene)scene.environmentIntensity=.9;
+const camera=new THREE.PerspectiveCamera(30,innerWidth/innerHeight,.1,100);
+scene.add(new THREE.HemisphereLight(0xfff6ee,0xd9d2c8,.7));
+const key=new THREE.DirectionalLight(0xfff3e6,1.7);key.position.set(-3,5,4);key.castShadow=true;key.shadow.mapSize.set(1024,1024);key.shadow.radius=6;key.shadow.bias=-.0005;scene.add(key);
+const rim=new THREE.DirectionalLight(0xfff0e6,1.2);rim.position.set(4,2,-4);scene.add(rim);
+const fill=new THREE.PointLight(0xff9a6a,2.2,6);fill.position.set(-3.2,1.2,.6);scene.add(fill);
+const shell=new THREE.MeshPhysicalMaterial({color:0xeeebe6,roughness:.38,clearcoat:.45,clearcoatRoughness:.3});
+const shellLight=new THREE.MeshPhysicalMaterial({color:0xf8f6f2,roughness:.34,clearcoat:.45,clearcoatRoughness:.3});
+const joint=new THREE.MeshStandardMaterial({color:0x1b1b1f,roughness:.55,metalness:.3});
+const dark=new THREE.MeshStandardMaterial({color:0x0f0f12,roughness:.6});
+const pedestalMat=new THREE.MeshStandardMaterial({color:0x2a2928,roughness:.9});
+function ringTexture(){const c=document.createElement('canvas');c.width=c.height=512;const x=c.getContext('2d');const g=x.createConicGradient(200*Math.PI/180,256,256);g.addColorStop(0,'#7c6cff');g.addColorStop(.25,'#a78bfa');g.addColorStop(.5,'#38e1c6');g.addColorStop(.75,'#00c2a8');g.addColorStop(1,'#7c6cff');x.fillStyle=g;x.fillRect(0,0,512,512);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t}
+const ringTex=ringTexture();const ringMat=new THREE.MeshPhysicalMaterial({map:ringTex,emissiveMap:ringTex,emissive:0xffffff,emissiveIntensity:.22,roughness:.5,clearcoat:.35});
+function roundedRectShape(w,h,r){const s=new THREE.Shape();const x=-w/2,y=-h/2;s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);return s}
+function frameGeometry(outerW,outerH,outerR,innerW,innerH,innerR,depth,bevel){
+  const outer=roundedRectShape(outerW,outerH,outerR);outer.holes.push(roundedRectShape(innerW,innerH,innerR));
+  const g=new THREE.ExtrudeGeometry(outer,{depth,bevelEnabled:true,bevelThickness:bevel,bevelSize:bevel,bevelSegments:2,curveSegments:12});
+  g.computeBoundingBox();const mn=g.boundingBox.min,mx=g.boundingBox.max;const pos=g.attributes.position,uv=g.attributes.uv;
+  for(let i=0;i<pos.count;i++)uv.setXY(i,(pos.getX(i)-mn.x)/(mx.x-mn.x),(pos.getY(i)-mn.y)/(mx.y-mn.y));return g;
+}
+const faceCanvas=document.createElement('canvas');faceCanvas.width=faceCanvas.height=512;const fx=faceCanvas.getContext('2d');const faceTex=new THREE.CanvasTexture(faceCanvas);faceTex.colorSpace=THREE.SRGBColorSpace;
+let blinkScale=1,nextBlink=performance.now()+3000,blinkT=0;
+function drawFace(){fx.fillStyle='#000';fx.fillRect(0,0,512,512);fx.fillStyle='#fff';fx.shadowColor='#fff';fx.shadowBlur=18;fx.beginPath();fx.ellipse(196,262,30,38*blinkScale,0,0,Math.PI*2);fx.fill();fx.beginPath();fx.ellipse(316,252,30,38*blinkScale,0,0,Math.PI*2);fx.fill();faceTex.needsUpdate=true} drawFace();
+const robotRoot=new THREE.Group();scene.add(robotRoot);
+const pedestal=new THREE.Mesh(new THREE.BoxGeometry(1.7,1.6,1.7),pedestalMat);pedestal.position.set(0,-2.22,0);pedestal.receiveShadow=true;robotRoot.add(pedestal);
+const body=new THREE.Group();robotRoot.add(body);
+const torso=new THREE.Mesh(new RoundedBoxGeometry(1.22,1.12,.92,4,.24),shell);torso.castShadow=true;body.add(torso);
+const chest=new THREE.Mesh(new RoundedBoxGeometry(.92,.32,.08,3,.04),shellLight);chest.position.set(0,.32,.45);body.add(chest);
+[0x7c6cff,0x38e1c6,0xa78bfa].forEach((c,i)=>{const led=new THREE.Mesh(new THREE.CylinderGeometry(.026,.026,.02,16),new THREE.MeshBasicMaterial({color:c}));led.rotation.x=Math.PI/2;led.position.set(-.24+i*.24,.32,.495);body.add(led)});
+[-.16,.16].forEach(x=>{const slot=new THREE.Mesh(new THREE.BoxGeometry(.038,.26,.02),dark);slot.position.set(x,-.06,.465);body.add(slot);const lip=new THREE.Mesh(new THREE.TorusGeometry(.04,.016,8,16,Math.PI),dark);lip.position.set(x,.07,.465);body.add(lip)});
+const pelvis=new THREE.Mesh(new RoundedBoxGeometry(.98,.22,.72,3,.08),joint);pelvis.position.set(0,-.58,0);body.add(pelvis);
+const neck=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,.28,20),joint);neck.position.set(0,.65,0);body.add(neck);
+const headPivot=new THREE.Group();headPivot.position.set(0,.78,0);body.add(headPivot);
+const head=new THREE.Group();head.position.set(0,.78,0);headPivot.add(head);
+const skull=new THREE.Mesh(new RoundedBoxGeometry(1.5,1.42,1.3,4,.2),shell);skull.castShadow=true;head.add(skull);
+const back=new THREE.Mesh(new RoundedBoxGeometry(1.28,1.14,.9,3,.1),dark);back.position.set(0,0,-.28);head.add(back);
+for(let i=0;i<26;i++){const bar=new THREE.Mesh(new THREE.BoxGeometry(.08,.02,.02),joint);if(i<16){bar.position.set(((i%4)-1.5)*.24+Math.sin(i)*.02,(Math.floor(i/4)-1.5)*.22+Math.cos(i)*.02,-.74);bar.scale.x=.8+(i%3)*.4}else{bar.position.set(((i%4)-1.5)*.22,.58,-.3+(i%3)*.15);bar.rotation.y=(i%2)*Math.PI/2}head.add(bar)}
+const frame=new THREE.Mesh(frameGeometry(1.5,1.44,.3,1.08,1.02,.2,.1,.03),ringMat);frame.position.set(0,0,.58);head.add(frame);
+const bezel=new THREE.Mesh(frameGeometry(1.08,1.02,.2,.92,.86,.1,.03,.015),shellLight);bezel.position.set(0,0,.62);head.add(bezel);
+const screen=new THREE.Mesh(new RoundedBoxGeometry(.9,.84,.02,3,.08),new THREE.MeshPhysicalMaterial({color:0x050507,roughness:.15,clearcoat:1,emissive:0xffffff,emissiveMap:faceTex,emissiveIntensity:1.6}));screen.position.set(0,0,.66);head.add(screen);
+[-1,1].forEach(s=>{const ear=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,.16,24),shellLight);ear.rotation.z=Math.PI/2;ear.position.set(s*.82,0,0);head.add(ear)});
+const cable=new THREE.Mesh(new THREE.TorusGeometry(.26,.042,10,24,Math.PI),joint);cable.position.set(.84,-.22,0);cable.rotation.y=Math.PI/2;cable.rotation.z=-.3;head.add(cable);
+function makeArm(side){const g=new THREE.Group();g.position.set(side*.72,.36,0);const ball=new THREE.Mesh(new THREE.SphereGeometry(.12,16,16),joint);g.add(ball);const upper=new THREE.Mesh(new RoundedBoxGeometry(.18,.44,.18,3,.05),shell);upper.position.set(side*.06,-.24,0);g.add(upper);const elbow=new THREE.Mesh(new THREE.SphereGeometry(.1,16,16),joint);elbow.position.set(side*.06,-.48,0);g.add(elbow);const fore=new THREE.Group();fore.position.set(side*.06,-.48,0);fore.rotation.x=-.35;g.add(fore);const fa=new THREE.Mesh(new RoundedBoxGeometry(.17,.36,.17,3,.04),shell);fa.position.set(0,-.2,0);fore.add(fa);const hand=new THREE.Mesh(new RoundedBoxGeometry(.16,.16,.14,3,.03),shellLight);hand.position.set(0,-.44,0);fore.add(hand);const thumb=new THREE.Mesh(new RoundedBoxGeometry(.06,.1,.06,2,.02),shellLight);thumb.position.set(side*-.09,-.42,.04);thumb.rotation.z=side*.4;fore.add(thumb);g.rotation.z=side*-.16;body.add(g);return{g,fore}}
+const armL=makeArm(-1),armR=makeArm(1);
+[-1,1].forEach(s=>{const lg=new THREE.Group();lg.position.set(s*.32,-.72,0);const hip=new THREE.Mesh(new THREE.SphereGeometry(.11,16,16),joint);lg.add(hip);const leg=new THREE.Mesh(new RoundedBoxGeometry(.22,.56,.24,3,.05),shell);leg.position.set(0,-.32,0);lg.add(leg);const ankle=new THREE.Mesh(new THREE.SphereGeometry(.09,16,16),joint);ankle.position.set(0,-.62,0);lg.add(ankle);const foot=new THREE.Mesh(new RoundedBoxGeometry(.28,.14,.46,3,.04),shellLight);foot.position.set(0,-.7,.08);lg.add(foot);body.add(lg)});
+function resize(){camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)} addEventListener('resize',resize);resize();
+let smX=0,smY=0,tx=0,ty=0;addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*2;ty=(e.clientY/innerHeight-.5)*2});
+function animate(t){requestAnimationFrame(animate);const time=t/1000;smX+=(tx-smX)*.06;smY+=(ty-smY)*.06;
+  const zMult=innerWidth<900?1.25:1;camera.position.set(smX*.25,1.1-smY*.1,11.6*zMult);camera.lookAt(0,.55,0);
+  body.position.y=Math.sin(time*1.4)*.02;body.rotation.y=-.42+smX*.12;
+  headPivot.rotation.set(.16+smY*.18+Math.sin(time*.9)*.02,-.6+smX*.45,.22+Math.sin(time*.7)*.02);
+  armL.g.rotation.x=Math.sin(time*1.4-1)*.05;armR.g.rotation.x=Math.sin(time*1.4+1)*.05;
+  armL.fore.rotation.x=-.35+Math.sin(time*1.4-1)*.06;armR.fore.rotation.x=-.35+Math.sin(time*1.4+1)*.06;
+  if(performance.now()>nextBlink&&blinkT===0)blinkT=1;
+  if(blinkT>0){blinkT+=.18;blinkScale=Math.max(.1,1-Math.abs(blinkT-1));if(blinkT>=2){blinkT=0;blinkScale=1;nextBlink=performance.now()+2500+Math.random()*3000}drawFace()}
+  renderer.render(scene,camera)} requestAnimationFrame(animate);
+</script>
 </body>
 </html>
