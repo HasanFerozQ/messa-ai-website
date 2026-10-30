@@ -84,7 +84,14 @@ footer{padding:40px 24px;text-align:center;font-family:"IBM Plex Mono",monospace
 nav{grid-template-columns:1fr auto}
 }
 
-.chat-fab{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;border:0;background:linear-gradient(135deg,#7c6cff,#00c2a8);cursor:pointer;z-index:100;box-shadow:0 12px 30px rgba(0,0,0,.5);display:grid;place-items:center;padding:0}.chat-fab svg{width:40px;height:40px}
+.chat-fab{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;border:0;background:linear-gradient(135deg,#7c6cff,#00c2a8);cursor:pointer;z-index:100;box-shadow:0 12px 30px rgba(0,0,0,.5);display:grid;place-items:center;padding:0;animation:fabWiggle 5s ease-in-out infinite,fabGlow 2.4s ease-in-out infinite}
+.chat-fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #38e1c6;pointer-events:none;animation:fabEcho 2.4s ease-out infinite}
+.chat-fab.seen{animation:none;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.chat-fab.seen::after{animation:none;display:none}
+@keyframes fabWiggle{0%,78%,100%{transform:rotate(0deg)}80%{transform:rotate(-10deg)}84%{transform:rotate(9deg)}88%{transform:rotate(-6deg)}92%{transform:rotate(4deg)}96%{transform:rotate(0deg)}}
+@keyframes fabGlow{0%,100%{box-shadow:0 0 0 0 rgba(124,108,255,.55),0 12px 30px rgba(0,0,0,.5)}50%{box-shadow:0 0 22px 6px rgba(56,225,198,.65),0 12px 30px rgba(0,0,0,.5)}}
+@keyframes fabEcho{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.7);opacity:0}}
+@media (prefers-reduced-motion:reduce){.chat-fab,.chat-fab::after{animation:none}}.chat-fab svg{width:40px;height:40px}
 .chat-panel{position:fixed;right:20px;bottom:90px;width:360px;max-width:calc(100vw - 40px);height:480px;max-height:70vh;background:#0d1024;border:1px solid rgba(255,255,255,.15);border-radius:18px;display:none;flex-direction:column;overflow:hidden;z-index:100;box-shadow:0 30px 60px rgba(0,0,0,.6)}
 .chat-panel.open{display:flex}.chat-head{display:flex;justify-content:space-between;align-items:center;padding:14px;background:linear-gradient(90deg,#7c6cff,#00a88f);color:#fff}.chat-head small{display:block;font-size:12px;opacity:.9}.chat-head button{background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer}
 .chat-body{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}.msg{padding:11px 13px;border-radius:14px;max-width:88%;font-size:14px;line-height:1.45}.msg.bot{background:rgba(124,108,255,.18);align-self:flex-start;color:#eef0ff}.msg.user{background:#1e2a5a;align-self:flex-end;color:#fff}
@@ -247,7 +254,7 @@ function askBot(q){if(!q||!q.trim())return;addMsg(q,'user');
   if(/start.*(demo|lead)|free demo|get started|i want a bot/.test(low)){startFlow();return}
   const m=low.match(/i (run|have|own) a[n]? ([a-z ]{3,30})/);if(m){LEAD.business=m[2].trim();LEAD.step=2;addMsg('Got it — a '+LEAD.business+'. Where do your customers message you?','bot');setChips([{label:'Website',action:'Website'},{label:'WhatsApp',action:'WhatsApp'},{label:'Messenger',action:'Messenger'},{label:'Website + WhatsApp',action:'Website + WhatsApp'}]);return}
   const tp=document.createElement('div');tp.className='msg bot';tp.textContent='…';const b=document.getElementById('chatBody');b.appendChild(tp);b.scrollTop=b.scrollHeight;setTimeout(()=>{tp.remove();const r=botReply(q);addMsg(r,'bot');if(/do not know/.test(r))setChips([{label:'Start a free demo',action:'startFlow'},{label:'Pricing',action:'Pricing'}])},700)}
-document.getElementById('chatFab').onclick=()=>document.getElementById('chatPanel').classList.toggle('open');
+document.getElementById('chatFab').onclick=()=>{document.getElementById('chatPanel').classList.toggle('open');document.getElementById('chatFab').classList.add('seen');};
 </script>
 
 <footer>MESSA AI · 2026 — Websites + AI Chatbots for US, UK &amp; EU</footer>
