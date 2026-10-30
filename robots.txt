@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://messa-ai-website.vercel.app/sitemap.xml

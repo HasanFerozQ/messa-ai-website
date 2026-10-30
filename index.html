@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Messa AI — Websites + AI Chatbots for US, UK &amp; EU</title>
-<meta name="description" content="Messa AI builds fast websites with AI chatbots that answer, book and sell — 24/7. For US, UK and EU businesses.">
+<meta name="description" content="Messa AI builds fast websites with AI chatbots that answer, book and sell — 24/7. Chatbots from $349, websites from $499, bundle from $999. For US, UK and EU service businesses, shops and clinics.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://messa-ai-website.vercel.app/">
+<meta property="og:title" content="Messa AI — Websites + AI Chatbots for US, UK & EU">
+<meta property="og:description" content="Fast websites with AI chatbots that answer, book and sell — 24/7. Free demo in 48 hours.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://messa-ai-website.vercel.app/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Messa AI","url":"https://messa-ai-website.vercel.app/","email":"essa.bin.hasan@gmail.com","areaServed":["United States","United Kingdom","European Union"],"makesOffer":[{"@type":"Offer","name":"AI Chatbot","priceCurrency":"USD","price":"349"},{"@type":"Offer","name":"Modern Website","priceCurrency":"USD","price":"499"},{"@type":"Offer","name":"Website + Chatbot Bundle","priceCurrency":"USD","price":"999"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to build a chatbot or website?","acceptedAnswer":{"@type":"Answer","text":"Most chatbots: 7 days. Most websites: 7-14 days. A demo is provided in 48 hours."}},{"@type":"Question","name":"Do I need a website already for a chatbot?","acceptedAnswer":{"@type":"Answer","text":"No. If you have one, the bot is trained on it. If you do not, the Bundle builds a website with the bot built in."}},{"@type":"Question","name":"What if the bot does not know an answer?","acceptedAnswer":{"@type":"Answer","text":"It says so honestly, captures the customer's name and question, and hands off to a human. It never invents prices or availability."}}]}</script>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Schibsted+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
 <style>
@@ -15,7 +24,7 @@
 .guides{position:fixed;inset:0;z-index:1;pointer-events:none}.guides i{position:absolute;top:0;bottom:0;width:1px;background:var(--grid)}
 .guides i:nth-child(1){left:17%}.guides i:nth-child(2){left:50%}.guides i:nth-child(3){left:83%}
 .topbar{position:fixed;top:0;left:0;right:0;height:30px;z-index:60;background:var(--bg);border-bottom:1px solid var(--grid);display:flex;align-items:center;justify-content:space-between;padding:0 17px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;transition:transform .5s cubic-bezier(.6,0,.2,1)}
-.topbar.hide{transform:translateY(-100%)}.topbar button{background:none;border:0;font-size:16px;cursor:pointer}
+.topbar.hide{transform:translateY(-100%)}.topbar button{background:none;border:0;font-size:16px;cursor:pointer;color:var(--ink)}
 nav{position:fixed;left:0;right:0;top:30px;z-index:59;height:52px;background:rgba(5,6,15,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--grid);display:grid;grid-template-columns:17% 1fr 12% 17%;align-items:stretch}
 nav.scrolled{top:0}
 .logo{display:flex;align-items:center;gap:10px;padding-left:17px;font-size:18px;font-weight:500;text-decoration:none;color:var(--ink)}
@@ -25,7 +34,7 @@ nav.scrolled{top:0}
 .menu{display:flex;align-items:center;gap:22px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;padding-left:12px;flex-wrap:wrap}.menu a{color:var(--ink);text-decoration:none}
 .pad{display:flex;align-items:center;justify-content:center;border-left:1px solid var(--grid);border-right:1px solid var(--grid);font-family:"IBM Plex Mono",monospace;font-size:11px;text-decoration:none;color:var(--ink)}
 .launch-wrap{display:flex;align-items:center;justify-content:center;padding:0 12px}
-.launch{position:relative;padding:0 14px;height:30px;display:flex;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;background:transparent;border:1px solid rgba(255,255,255,.35);cursor:pointer}
+.launch{position:relative;padding:0 14px;height:30px;display:flex;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;background:transparent;border:1px solid rgba(255,255,255,.35);color:var(--ink);cursor:pointer}
 .launch:before{content:"";position:absolute;left:-1px;top:-1px;width:55%;height:1px;background:linear-gradient(90deg,#7c6cff,#38e1c6)}
 .launch:after{content:"";position:absolute;left:-1px;top:-1px;width:1px;height:55%;background:linear-gradient(180deg,#7c6cff,#38e1c6)}
 main{position:relative;z-index:2}
@@ -43,7 +52,7 @@ section.hero{height:100vh;position:relative;overflow:hidden}
 .features .row.dim{color:var(--dim)}
 .bottom-left{position:absolute;left:17%;bottom:14%;z-index:3}
 .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.05em;margin-bottom:12px}
-.headline{font-size:clamp(42px,5.25vw,92px);line-height:.95;font-weight:400;letter-spacing:-.02em}
+.headline{font-size:clamp(42px,5.25vw,92px);line-height:.95;font-weight:400;letter-spacing:-.02em;margin:0}
 .headline span{display:inline-block;padding:6px 14px 10px;border:2px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(90deg,#7c6cff,#38e1c6) border-box}
 .headline .t2{background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(90deg,#a78bfa,#7c6cff,#38e1c6) border-box;clip-path:polygon(0 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%)}
 .sub{position:absolute;left:calc(62% + 18px);bottom:3.6%;font-size:14.5px;max-width:300px;z-index:3}
@@ -60,11 +69,11 @@ section.hero{height:100vh;position:relative;overflow:hidden}
 .card.pop{border:2px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(90deg,#7c6cff,#38e1c6) border-box}
 .card h3{margin:0 0 8px;font-size:20px}.card p{color:var(--dim);line-height:1.6}
 .price{font-size:32px;margin:16px 0 4px}.price small{font-size:13px;color:var(--dim)}
-.btn{display:inline-block;margin-top:16px;padding:12px 18px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em}
+.btn{display:inline-block;margin-top:16px;padding:12px 18px;border:1px solid var(--ink);color:var(--ink);background:transparent;text-decoration:none;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;cursor:pointer}button.btn{background:linear-gradient(135deg,#7c6cff,#00c2a8);color:#fff;border:0;font-weight:700}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}
 .step{border-top:1px solid var(--grid);padding-top:14px}.step b{font-family:"IBM Plex Mono",monospace;font-size:11px}
 .faq{margin-top:24px}.faq p{line-height:1.6;color:var(--dim)}
-input,textarea,select{width:100%;padding:12px;border:1px solid rgba(255,255,255,.35);background:transparent;font:inherit;margin-bottom:12px}
+input,textarea,select{width:100%;padding:12px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.06);color:var(--ink);font:inherit;margin-bottom:12px}input::placeholder,textarea::placeholder{color:rgba(195,200,232,.55)}input:focus,textarea:focus{outline:none;border-color:#38e1c6}
 footer{padding:40px 24px;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;border-top:1px solid var(--grid);background:var(--bg);position:relative;z-index:3}
 @media(max-width:900px){
 .menu,.pad,.guides,.features{display:none!important}
@@ -74,6 +83,15 @@ footer{padding:40px 24px;text-align:center;font-family:"IBM Plex Mono",monospace
 .grid3,.steps{grid-template-columns:1fr}
 nav{grid-template-columns:1fr auto}
 }
+
+.chat-fab{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;border:0;background:linear-gradient(135deg,#7c6cff,#00c2a8);font-size:26px;cursor:pointer;z-index:100;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.chat-panel{position:fixed;right:20px;bottom:90px;width:360px;max-width:calc(100vw - 40px);height:480px;max-height:70vh;background:#0d1024;border:1px solid rgba(255,255,255,.15);border-radius:18px;display:none;flex-direction:column;overflow:hidden;z-index:100;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.chat-panel.open{display:flex}.chat-head{display:flex;justify-content:space-between;align-items:center;padding:14px;background:linear-gradient(90deg,#7c6cff,#00a88f);color:#fff}.chat-head small{display:block;font-size:12px;opacity:.9}.chat-head button{background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer}
+.chat-body{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}.msg{padding:11px 13px;border-radius:14px;max-width:88%;font-size:14px;line-height:1.45}.msg.bot{background:rgba(124,108,255,.18);align-self:flex-start;color:#eef0ff}.msg.user{background:#1e2a5a;align-self:flex-end;color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px}.chips button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:6px 10px;cursor:pointer;font-size:12px}
+.chat-input{display:flex;border-top:1px solid rgba(255,255,255,.1)}.chat-input input{flex:1;background:transparent;border:0;padding:13px;color:#eef0ff;outline:none;margin:0}.chat-input button{background:#7c6cff;border:0;color:#fff;padding:0 16px;cursor:pointer;font-weight:700}
+.content{background:transparent}
+#demo,#pricing,#process,#contact{background:var(--bg)}
 </style>
 </head>
 <body>
@@ -101,7 +119,7 @@ nav{grid-template-columns:1fr auto}
 </div>
 <div class="bottom-left">
 <div class="eyebrow">UNLEASH THE POWER OF</div>
-<div class="headline"><span>Websites That</span><br><span class="t2">Sell 24/7</span></div>
+<h1 class="headline"><span>Websites That</span><br><span class="t2">Sell 24/7</span></h1>
 </div>
 <div class="sub">We build fast websites with AI chatbots trained on your business. It answers, books and sells — even at 2am. For US, UK &amp; EU service businesses, shops and clinics.</div>
 <a class="scroll-link" href="#services">SCROLL <span class="arr">↓</span></a>
@@ -110,7 +128,7 @@ nav{grid-template-columns:1fr auto}
 <section id="services" class="wrap">
 <p class="mono" style="font-size:11px">·· What we build</p>
 <h2><span class="box">Your Gateway</span><br>To a website that works while you sleep.</h2>
-<p class="lead">No fake promises. No enterprise price tag. A working demo first, then you decide. Move your mouse — the robot on the hero is the demo of what we build: it watches, answers, and never sleeps.</p>
+<p class="lead">No fake promises. No enterprise price tag. A working demo first, then you decide. Move your mouse — and scroll down. The robot zooms in to a close-up as you reach this section, like the Nova hero: it watches, answers, and never sleeps.</p>
 <div class="grid3">
 <div class="card"><h3>🤖 AI Chatbots</h3><p>Trained on your website, services and FAQs. Answers instantly, qualifies leads, books appointments, captures name and phone.</p><p>Website • WhatsApp • Messenger • Shopify support</p></div>
 <div class="card"><h3>⚡ Modern Websites</h3><p>Fast, mobile-first, built to convert, not just to look pretty. Clear headline, clear next step, fast loading, Google-friendly structure.</p><p>Business sites • Landing pages • Shopify / custom</p></div>
@@ -168,10 +186,38 @@ nav{grid-template-columns:1fr auto}
 </section>
 </div>
 </main>
+<button id="chatFab" class="chat-fab" aria-label="Open Messa AI demo bot">💬</button>
+<div id="chatPanel" class="chat-panel" role="dialog" aria-label="Messa AI demo bot">
+<div class="chat-head"><div><strong>Messa AI demo bot</strong><small>Demo only — answers from this site, not a live AI agent</small></div><button onclick="document.getElementById('chatPanel').classList.remove('open')" aria-label="Close chat">×</button></div>
+<div id="chatBody" class="chat-body"><div class="msg bot">Hi, I am the Messa AI demo bot. Ask me about pricing, timeline, WhatsApp, GDPR, or booking a demo. I only answer from this site — if I do not know, I will say so and point you to a human.</div></div>
+<div class="chips"><button onclick="askBot('Pricing')">Pricing</button><button onclick="askBot('How long does it take?')">Timeline</button><button onclick="askBot('WhatsApp')">WhatsApp</button><button onclick="askBot('Book a demo')">Book a demo</button></div>
+<form class="chat-input" onsubmit="event.preventDefault();askBot(this.q.value);this.q.value=''"><input name="q" placeholder="Ask about pricing, timeline…" aria-label="Ask the demo bot"><button type="submit">Send</button></form>
+</div>
+<script>
+function addMsg(text,who){const d=document.createElement('div');d.className='msg '+who;d.textContent=text;const b=document.getElementById('chatBody');b.appendChild(d);b.scrollTop=b.scrollHeight}
+function botReply(q){
+  const s=q.toLowerCase();
+  if(/price|cost|\$|pricing|package/.test(s)) return "Chatbots: Starter $349, Growth $749, Pro $1,290. Websites: Launch $499, Growth $999, Scale $1,900. Website + Chatbot Bundle from $999. Care plan $79/month optional. 50% upfront, 50% on launch. Platform and WhatsApp fees are separate and shown upfront.";
+  if(/how long|timeline|fast|launch|deliver/.test(s)) return "Most chatbots go live in 7 days, most websites in 7-14 days. You get a working demo in 48 hours, before you pay the balance.";
+  if(/whatsapp/.test(s)) return "WhatsApp is the UK/EU favourite: the bot confirms appointments, reminds customers, and hands off to your team. WhatsApp Business and platform fees depend on volume and are paid by you separately — we show them upfront, they are not hidden in our price.";
+  if(/book|demo|call|appointment/.test(s)) return "Book a free 20-minute call and a demo in 48 hours. Use the contact form at the bottom of this page, or email essa.bin.hasan@gmail.com with subject 'Chatbot demo'. We reply with a working demo idea within 1 business day.";
+  if(/gdpr|privacy|data/.test(s)) return "For UK/EU we follow UK GDPR / GDPR: only the data the bot needs to answer or book, a clear privacy note, no selling of customer data, and a human handoff always available. For regulated businesses we add a human review step.";
+  if(/website|need a website|no website/.test(s)) return "No, you do not need a website already. If you have one, we train the bot on it. If you do not, the Bundle builds you a website with the bot built in from day one.";
+  if(/shopify|shop|order|store/.test(s)) return "Yes — a shop support bot answers 'Where is my order? What sizes are in stock? What is your return policy?' from your store, and sends shoppers to checkout. Shopify and custom builds are both supported.";
+  if(/us|uk|eu|europe|united/.test(s)) return "US: website + Messenger first. UK: WhatsApp + website, with UK GDPR care. EU: WhatsApp + website, with GDPR data minimisation. Human handoff always available.";
+  if(/service|what do you|offer/.test(s)) return "We build AI chatbots, modern websites, and the Website + Chatbot Bundle. Channels: website, WhatsApp and Messenger. One team, one launch, 30 days of fixes included.";
+  if(/contact|email|phone|human|person|talk/.test(s)) return "Email essa.bin.hasan@gmail.com with subject 'Chatbot demo', or use the contact form below. A human replies — this demo bot does not take payments or book a real call by itself.";
+  if(/hello|hi|hey/.test(s)) return "Hello! Ask me about pricing, timeline, WhatsApp, GDPR, or booking a demo — I answer from this site only.";
+  return "I do not know that yet, and I will not invent an answer. Tell me your business type and question, or email essa.bin.hasan@gmail.com with subject 'Chatbot demo' and a human will reply.";
+}
+function askBot(q){if(!q||!q.trim())return;addMsg(q,'user');setTimeout(()=>addMsg(botReply(q),'bot'),400)}
+document.getElementById('chatFab').onclick=()=>document.getElementById('chatPanel').classList.toggle('open');
+</script>
+
 <footer>MESSA AI · 2026 — Websites + AI Chatbots for US, UK &amp; EU</footer>
 <script>
 const topbar=document.getElementById('topbar'),nav=document.getElementById('nav'),scene=document.getElementById('scene');
-window.addEventListener('scroll',()=>{const s=window.scrollY;topbar.classList.toggle('hide',s>40);nav.classList.toggle('scrolled',s>40);scene.style.opacity=s>window.innerHeight*.8?0:1},{passive:true});
+window.addEventListener('scroll',()=>{const s=window.scrollY;topbar.classList.toggle('hide',s>40);nav.classList.toggle('scrolled',s>40);scene.style.opacity=s>window.innerHeight*2?0:1},{passive:true});
 const prompts=["Build a chatbot for my plumbing business that books jobs.","I need a website that answers customers at 2am.","Can a bot take orders on WhatsApp for my shop?","How fast can you launch my website + chatbot?"];
 let pi=0,ci=0,del=false;const typed=document.getElementById('typed'),nextEl=document.getElementById('nextPrompt');
 function showNext(){nextEl.textContent='Next: '+prompts[(pi+1)%prompts.length]} showNext();
@@ -231,11 +277,15 @@ function makeArm(side){const g=new THREE.Group();g.position.set(side*.72,.36,0);
 const armL=makeArm(-1),armR=makeArm(1);
 [-1,1].forEach(s=>{const lg=new THREE.Group();lg.position.set(s*.32,-.72,0);const hip=new THREE.Mesh(new THREE.SphereGeometry(.11,16,16),joint);lg.add(hip);const leg=new THREE.Mesh(new RoundedBoxGeometry(.22,.56,.24,3,.05),shell);leg.position.set(0,-.32,0);lg.add(leg);const ankle=new THREE.Mesh(new THREE.SphereGeometry(.09,16,16),joint);ankle.position.set(0,-.62,0);lg.add(ankle);const foot=new THREE.Mesh(new RoundedBoxGeometry(.28,.14,.46,3,.04),shellLight);foot.position.set(0,-.7,.08);lg.add(foot);body.add(lg)});
 function resize(){camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)} addEventListener('resize',resize);resize();
-let smX=0,smY=0,tx=0,ty=0;addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*2;ty=(e.clientY/innerHeight-.5)*2});
+let smX=0,smY=0,smP=0,tx=0,ty=0;addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*2;ty=(e.clientY/innerHeight-.5)*2});
 function animate(t){requestAnimationFrame(animate);const time=t/1000;smX+=(tx-smX)*.06;smY+=(ty-smY)*.06;
-  const zMult=innerWidth<900?1.25:1;camera.position.set(smX*.25,1.1-smY*.1,11.6*zMult);camera.lookAt(0,.55,0);
-  body.position.y=Math.sin(time*1.4)*.02;body.rotation.y=-.42+smX*.12;
-  headPivot.rotation.set(.16+smY*.18+Math.sin(time*.9)*.02,-.6+smX*.45,.22+Math.sin(time*.7)*.02);
+  const rawP=Math.min(2,Math.max(0,window.scrollY/window.innerHeight));smP+=(rawP-smP)*.08;
+  const e=smP>1?1:smP*smP*(3-2*smP); // smooth blend, 0 = hero wide shot, 1 = close-up
+  const camY=1.1+(1.95-1.1)*e,lookY=.55+(1.72-.55)*e,bodyYaw=-.42+(-.2+.42)*e;
+  const headX=.16+(-.06-.16)*e,headY=-.6+(.04+.6)*e,headZ=.22+(0-.22)*e;
+  const zMult=innerWidth<900?1.25:1;camera.position.set(smX*.25,camY-smY*.1,(11.6+(6.9-11.6)*e)*zMult);camera.lookAt(0,lookY,0);
+  body.position.y=Math.sin(time*1.4)*.02;body.rotation.y=bodyYaw+smX*.12;
+  headPivot.rotation.set(headX+smY*.18+Math.sin(time*.9)*.02,headY+smX*.45,headZ+Math.sin(time*.7)*.02);
   armL.g.rotation.x=Math.sin(time*1.4-1)*.05;armR.g.rotation.x=Math.sin(time*1.4+1)*.05;
   armL.fore.rotation.x=-.35+Math.sin(time*1.4-1)*.06;armR.fore.rotation.x=-.35+Math.sin(time*1.4+1)*.06;
   if(performance.now()>nextBlink&&blinkT===0)blinkT=1;
