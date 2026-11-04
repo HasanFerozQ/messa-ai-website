@@ -23,20 +23,20 @@
 #scene{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity .6s}
 .guides{position:fixed;inset:0;z-index:1;pointer-events:none}.guides i{position:absolute;top:0;bottom:0;width:1px;background:var(--grid)}
 .guides i:nth-child(1){left:17%}.guides i:nth-child(2){left:50%}.guides i:nth-child(3){left:83%}
-.topbar{position:fixed;top:0;left:0;right:0;height:30px;z-index:60;background:var(--bg);border-bottom:1px solid var(--grid);display:flex;align-items:center;justify-content:space-between;padding:0 17px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;transition:transform .5s cubic-bezier(.6,0,.2,1)}
+.topbar{position:fixed;top:0;left:0;right:0;height:34px;z-index:60;background:var(--bg);border-bottom:1px solid var(--grid);display:flex;align-items:center;justify-content:space-between;padding:0 17px;font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;transition:transform .5s cubic-bezier(.6,0,.2,1)}
 .topbar.hide{transform:translateY(-100%)}.topbar button{background:none;border:0;font-size:16px;cursor:pointer;color:var(--ink)}
-nav{position:fixed;left:0;right:0;top:30px;z-index:59;height:52px;background:rgba(5,6,15,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--grid);display:grid;grid-template-columns:17% 1fr 12% 17%;align-items:stretch}
+nav{position:fixed;left:0;right:0;top:34px;z-index:59;height:68px;background:rgba(5,6,15,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.18);box-shadow:0 8px 30px rgba(0,0,0,.35);display:grid;grid-template-columns:17% 1fr auto auto;align-items:stretch}
 nav.scrolled{top:0}
-.logo{display:flex;align-items:center;gap:10px;padding-left:17px;font-size:18px;font-weight:500;text-decoration:none;color:var(--ink)}
-.logo-mark{width:27px;height:27px;flex:0 0 27px;border-radius:7px;position:relative;background:var(--grad);padding:2px;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.logo{display:flex;align-items:center;gap:12px;padding-left:17px;font-size:22px;font-weight:700;letter-spacing:.02em;text-decoration:none;color:var(--ink)}
+.logo-mark{width:34px;height:34px;flex:0 0 34px;border-radius:9px;position:relative;background:var(--grad);padding:2px;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
 .logo-mark:before{content:"";position:absolute;inset:5px 4px 5px 9px;background:var(--bg);border-radius:4px}
 .logo-mark:after{content:"••";position:absolute;left:7px;top:6px;font-size:9px;letter-spacing:3px}
-.menu{display:flex;align-items:center;gap:22px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;padding-left:12px;flex-wrap:wrap}.menu a{color:var(--ink);text-decoration:none}
-.pad{display:flex;align-items:center;justify-content:center;border-left:1px solid var(--grid);border-right:1px solid var(--grid);font-family:"IBM Plex Mono",monospace;font-size:11px;text-decoration:none;color:var(--ink)}
-.launch-wrap{display:flex;align-items:center;justify-content:center;padding:0 12px}
-.launch{position:relative;padding:0 14px;height:30px;display:flex;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;background:transparent;border:1px solid rgba(255,255,255,.35);color:var(--ink);cursor:pointer}
-.launch:before{content:"";position:absolute;left:-1px;top:-1px;width:55%;height:1px;background:linear-gradient(90deg,#7c6cff,#38e1c6)}
-.launch:after{content:"";position:absolute;left:-1px;top:-1px;width:1px;height:55%;background:linear-gradient(180deg,#7c6cff,#38e1c6)}
+.menu{display:flex;align-items:center;gap:30px;font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:500;letter-spacing:.02em;padding-left:16px;flex-wrap:wrap}.menu a{color:var(--ink);text-decoration:none;position:relative;padding:8px 2px;transition:color .25s,transform .25s}.menu a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,#7c6cff,#38e1c6);transform:scaleX(0);transform-origin:left;transition:transform .3s}.menu a:hover{color:#38e1c6;transform:translateY(-2px)}.menu a:hover::after{transform:scaleX(1)}
+.pad{display:flex;align-items:center;justify-content:center;align-self:center;height:44px;margin:0 10px;padding:0 22px;border-radius:999px;border:0;background:linear-gradient(135deg,#7c6cff,#00c2a8);box-shadow:0 6px 20px rgba(124,108,255,.45);font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:700;letter-spacing:.03em;text-decoration:none;color:#fff;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}.pad::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s}.pad:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 30px rgba(56,225,198,.55)}.pad:hover::after{transform:translateX(120%)}
+.launch-wrap{display:flex;align-items:center;justify-content:center;padding:0 14px}
+.launch{position:relative;padding:0 22px;height:44px;display:flex;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:700;letter-spacing:.03em;background:linear-gradient(135deg,#7c6cff,#38e1c6);border:0;border-radius:999px;color:#fff;cursor:pointer;box-shadow:0 6px 20px rgba(124,108,255,.45);overflow:hidden;transition:transform .25s,box-shadow .25s,filter .25s}.launch:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 32px rgba(56,225,198,.6);filter:brightness(1.1)}.launch:active{transform:scale(.97)}
+.launch:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s}.launch:hover:before{transform:translateX(120%)}
+.launch:after{content:none}
 main{position:relative;z-index:2}
 section.hero{height:100vh;position:relative;overflow:hidden}
 .prompt{position:absolute;left:17%;top:30%;width:24.4%}
@@ -65,11 +65,11 @@ section.hero{height:100vh;position:relative;overflow:hidden}
 .wrap h2 .box{display:inline-block;border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:6px 14px}
 .lead{color:var(--dim);max-width:620px;line-height:1.6}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-.card{border:1px solid rgba(255,255,255,.35);padding:24px;background:rgba(255,255,255,.05);position:relative}
+.card{border:1px solid rgba(255,255,255,.35);padding:24px;background:#0e1128;position:relative}
 .card.pop{border:2px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(90deg,#7c6cff,#38e1c6) border-box}
 .card h3{margin:0 0 8px;font-size:20px}.card p{color:var(--dim);line-height:1.6}
 .price{font-size:32px;margin:16px 0 4px}.price small{font-size:13px;color:var(--dim)}
-.btn{display:inline-block;margin-top:16px;padding:12px 18px;border:1px solid var(--ink);color:var(--ink);background:transparent;text-decoration:none;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;cursor:pointer}button.btn{background:linear-gradient(135deg,#7c6cff,#00c2a8);color:#fff;border:0;font-weight:700}
+.btn{display:inline-block;margin-top:16px;padding:12px 18px;border:1px solid var(--ink);color:var(--ink);background:transparent;text-decoration:none;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;cursor:pointer;transition:transform .25s,box-shadow .25s}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(56,225,198,.35)}button.btn{background:linear-gradient(135deg,#7c6cff,#00c2a8);color:#fff;border:0;font-weight:700}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}
 .step{border-top:1px solid var(--grid);padding-top:14px}.step b{font-family:"IBM Plex Mono",monospace;font-size:11px}
 .faq{margin-top:24px}.faq p{line-height:1.6;color:var(--dim)}
@@ -97,8 +97,7 @@ nav{grid-template-columns:1fr auto}
 .chat-body{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}.msg{padding:12px 14px;border-radius:14px;max-width:88%;font-size:14px;line-height:1.6}.msg strong{color:#fff}.msg.bot{background:rgba(124,108,255,.18);align-self:flex-start;color:#eef0ff}.msg.user{background:#1e2a5a;align-self:flex-end;color:#fff}
 .chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px}.chips button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:6px 10px;cursor:pointer;font-size:12px}
 .chat-input{display:flex;border-top:1px solid rgba(255,255,255,.1)}.chat-input input{flex:1;background:transparent;border:0;padding:13px;color:#eef0ff;outline:none;margin:0}.chat-input button{background:#7c6cff;border:0;color:#fff;padding:0 16px;cursor:pointer;font-weight:700}
-.content{background:transparent}
-#demo,#pricing,#process,#contact{background:var(--bg)}
+#services,#demo,#pricing,#process,#contact{background:var(--bg);position:relative;z-index:3}
 </style>
 </head>
 <body>
@@ -135,7 +134,7 @@ nav{grid-template-columns:1fr auto}
 <section id="services" class="wrap">
 <p class="mono" style="font-size:11px">·· What we build</p>
 <h2><span class="box">Your Gateway</span><br>To a website that works while you sleep.</h2>
-<p class="lead">No fake promises. No enterprise price tag. A working demo first, then you decide. Move your mouse — and scroll down. The robot zooms in to a close-up as you reach this section, like the Nova hero: it watches, answers, and never sleeps.</p>
+<p class="lead">No fake promises. No enterprise price tag. A working demo first, then you decide. The robot on the hero is a live demo of what we build: it watches, answers, and never sleeps. Scroll down — the services below are kept clean, with no robot in the way.</p>
 <div class="grid3">
 <div class="card"><h3>🤖 AI Chatbots</h3><p>Trained on your website, services and FAQs. Answers instantly, qualifies leads, books appointments, captures name and phone.</p><p>Website • WhatsApp • Messenger • Shopify support</p></div>
 <div class="card"><h3>⚡ Modern Websites</h3><p>Fast, mobile-first, built to convert, not just to look pretty. Clear headline, clear next step, fast loading, Google-friendly structure.</p><p>Business sites • Landing pages • Shopify / custom</p></div>
@@ -296,7 +295,7 @@ document.getElementById('chatFab').onclick=()=>{document.getElementById('chatPan
 <footer>MESSA AI · 2026 — Websites + AI Chatbots for US, UK &amp; EU</footer>
 <script>
 const topbar=document.getElementById('topbar'),nav=document.getElementById('nav'),scene=document.getElementById('scene');
-window.addEventListener('scroll',()=>{const s=window.scrollY;topbar.classList.toggle('hide',s>40);nav.classList.toggle('scrolled',s>40);scene.style.opacity=s>window.innerHeight*2?0:1},{passive:true});
+window.addEventListener('scroll',()=>{const s=window.scrollY;topbar.classList.toggle('hide',s>40);nav.classList.toggle('scrolled',s>40);scene.style.opacity=s<window.innerHeight*.55?1:s>window.innerHeight*1.15?0:1-(s-window.innerHeight*.55)/(window.innerHeight*.6)},{passive:true});
 const prompts=["Build a chatbot for my plumbing business that books jobs.","I need a website that answers customers at 2am.","Can a bot take orders on WhatsApp for my shop?","How fast can you launch my website + chatbot?"];
 let pi=0,ci=0,del=false;const typed=document.getElementById('typed'),nextEl=document.getElementById('nextPrompt');
 function showNext(){nextEl.textContent='Next: '+prompts[(pi+1)%prompts.length]} showNext();
